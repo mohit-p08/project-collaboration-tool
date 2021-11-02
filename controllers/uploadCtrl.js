@@ -12,6 +12,7 @@ Functions supported:
 
 Global variables: user id
 */
+
 const cloudinary = require('cloudinary');
 const fs = require('fs');
 
@@ -22,6 +23,7 @@ cloudinary.config({
 });
 
 const uploadCtrl = {
+    // upload image
     uploadAvatar: (req, res) => {
         try {
             const file = req.files.file;

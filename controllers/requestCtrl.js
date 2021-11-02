@@ -12,10 +12,10 @@ Functions supported:
 
 Global variables: user id, project id
 */
+
 const Request = require('../models/requestModel');
 const Projects = require('../models/projectModel');
 const Users = require('../models/userModel');
-const jwt = require('jsonwebtoken');
 const requestsendMail = require('./requestSendMail');
 
 const requestCtrl = {
@@ -24,6 +24,10 @@ const requestCtrl = {
         try {
             const collaboratorID = req.user.id;
             const projectID = req.params.id;
+
+            const profileChecker = await Users.findById({ _id: collaboratorID });
+            if (profileChecker.flag === 0)
+                return res.status(400).json({ msg: 'Please create your profile first' });
 
             const projectData = await Projects.findOne({ _id: projectID }).exec();
 

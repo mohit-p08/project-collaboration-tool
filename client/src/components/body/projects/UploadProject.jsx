@@ -8,9 +8,9 @@ Modification history :
     Background Color
 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './uploadproject.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
 import { useHistory } from 'react-router-dom';
@@ -28,14 +28,11 @@ const initialState = {
 
 const UploadProject = () => {
 
-    const auth = useSelector(state => state.auth);
     const token = useSelector(state => state.token);
     const history = useHistory();
 
     const [data, setData] = useState(initialState);
     const { title, overview, description, requirements, github, hiringStatus, err, success } = data;
-
-    //setvlaue of differnt filled according their name
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,13 +40,12 @@ const UploadProject = () => {
         setData({ ...data, [name]: value, err: '', success: '' });
     }
 
-    //after submit data below function use to post data to api
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const res = await axios.post('/projects/postproject', {
-                title, overview, description, requirements, github, hiringStatus: (hiringStatus == "active") ? "0" : "1"
+                title, overview, description, requirements, github, hiringStatus: (hiringStatus === "active") ? "0" : "1"
             }, {
                 headers: { Authorization: token }
             });
@@ -176,7 +172,7 @@ const UploadProject = () => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default UploadProject;

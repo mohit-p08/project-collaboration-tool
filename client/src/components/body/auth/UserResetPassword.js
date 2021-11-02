@@ -10,9 +10,9 @@ What the module does: reset password
 Functions supported:
 1. Login   => Input: password, cf_password;              Output: Success/err
 */
+
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
 import { isLength, isMatch } from '../../utils/validation/Validation';
 import { useSelector } from 'react-redux';

@@ -1,7 +1,7 @@
 const { request } = require('express');
 const mongoose = require('mongoose');
 
-// database chema of request project
+// database schema of request project
 const requestSchema = new mongoose.Schema({
     projectID: {
         type: String,

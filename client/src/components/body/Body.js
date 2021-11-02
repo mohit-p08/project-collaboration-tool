@@ -7,9 +7,9 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import ActivationEmail from './auth/ActivationEmail';
 import NotFound from '../utils/notFound/NotFound';
+import AdminNotFound from '../utils/notFound/AdminNotFound';
 import ForgotPassword from '../body/auth/ForgotPassword';
 import ResetPassword from '../body/auth/ResetPassword';
-import Profile from '../body/profile/Profile';
 import Home from '../body/home/Home';
 import UploadProject from '../body/projects/UploadProject';
 import Projects from '../body/projects/Projects';
@@ -40,7 +40,6 @@ function Body() {
                 <Route path="/resetpassword" component={isLogged ? UserResetPassword : NotFound} exact />
                 <Route path="/user/activate/:activation_token" component={ActivationEmail} exact />
                 <Route path="/dashboard" component={isLogged ? UserProfile : NotFound} exact />
-                <Route path="/userprofile" component={isLogged ? Profile : NotFound} exact />
                 <Route path="/projects/postproject" component={isLogged ? UploadProject : NotFound} exact />
                 <Route path="/joinproject/:id" component={isLogged ? JoinProject : NotFound} exact />
                 <Route path="/projects" component={Projects} exact />
@@ -50,8 +49,7 @@ function Body() {
                 <Route path="/myprojects" component={isLogged ? MyProjects : NotFound} exact />
                 <Route path="/viewproject/:id" component={isLogged ? ViewProject : NotFound} exact />
                 <Route path="/updateproject/:id" component={isLogged ? UpdateProject : NotFound} exact />
-                <Route path="/admin" component={isLogged ? Admin : NotFound} exact />
-                {/* <Route path="/edituser/:id" component={isAdmin ? EditUser : NotFound} exact /> */}
+                <Route path="/admin" component={isAdmin ? Admin : AdminNotFound} exact />
             </Switch>
         </div>
     );

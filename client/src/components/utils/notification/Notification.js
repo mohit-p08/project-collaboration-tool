@@ -2,7 +2,6 @@ import React from 'react';
 import './notification.css';
 
 export const showErrMsg = (msg) => {
-
     const reload = async () => {
         window.location.reload(false);
     }
@@ -15,7 +14,6 @@ export const showErrMsg = (msg) => {
             </div>
         </>
     )
-    // <div className="errMsg">{msg}</div>
 }
 
 export const showSuccessMsg = (msg) => {
@@ -31,7 +29,5 @@ export const showSuccessMsg = (msg) => {
                 <button onClick={reload} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </>
-        // <div className="successMsg">{msg}</div>
-
     )
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// database chema of project
+// database schema of project
 const projectSchema = new mongoose.Schema({
     creator: {
         type: String,

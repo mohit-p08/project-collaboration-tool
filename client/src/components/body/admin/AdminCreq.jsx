@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 import "./adminCreq.css";
 import DataAdmin from "./DataAdmin";
 

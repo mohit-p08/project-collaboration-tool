@@ -1,12 +1,12 @@
-import React from 'react'
-import "./userprofile.css"
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import React from 'react';
+import './userprofile.css';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 const UserProfile = () => {
 
     const auth = useSelector(state => state.auth);
-    const { user, isAdmin } = auth;
+    const { user } = auth;
 
     return (
         <>
@@ -65,8 +65,8 @@ const UserProfile = () => {
                                         <hr />
                                         <div className="info-div">
                                             {/* <span><b> Github Link: </b>{user.github} </span> */}
-                                            <span><b> Github: </b><a href={`${user.github}`} target="_blank">{user.github}</a></span>
-                                            <span><b> Linkedin: </b><a href={`${user.linkedIn}`} target="_blank">{user.linkedIn}</a></span>
+                                            <span><b> Github: </b><a href={`${user.github}`} rel="noopener noreferrer" target="_blank">{user.github}</a></span>
+                                            <span><b> Linkedin: </b><a href={`${user.linkedIn}`} rel="noopener noreferrer" target="_blank">{user.linkedIn}</a></span>
                                             {/* <span><b> Linkedin: </b>{user.linkedIn}</span> */}
                                         </div>
                                     </div>

@@ -7,7 +7,7 @@ Modification history :
     module Active state effect and hover effect
 */
 
-import React, { useState } from 'react'
+import React from 'react'
 import './navbar.css'
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -41,10 +41,6 @@ const Navbar = () => {
         </li>
     }
 
-    // const transForm = {
-    //     transform: isLogged ? "translateY(-5px)" : 0
-    // }
-
     return (
         <>
             <header>
@@ -58,14 +54,7 @@ const Navbar = () => {
                         <li><NavLink activeClassName="active" exact to="/about" >ABOUT</NavLink></li>
                         <li><NavLink activeClassName="active" exact to="/contact" >CONTACT</NavLink></li>
                         <li><NavLink activeClassName="active" exact to="/projects" >PROJECTs</NavLink></li>
-                        {/* <li><NavLink activeClassName="active" exact to="/userprofile" >LOGIN</NavLink></li> */}
                         {isLogged ? userLink() : <li><NavLink to="/login"><i className="fas fa-user"></i> Sign in</NavLink></li>}
-
-                        {/* <ul style={transForm}>
-                            {
-                               
-                            }
-                        </ul> */}
                     </ol>
                 </div>
             </header>

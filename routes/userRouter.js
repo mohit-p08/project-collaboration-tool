@@ -14,10 +14,10 @@ router.get('/logout', userCtrl.logout);
 router.post('/googlelogin', userCtrl.googleLogin);
 router.get('/getUser/:email', userCtrl.getUser);
 
-router.patch('/updaterights/:id', auth, authAdmin, userCtrl.updateUsersRole);
-router.get('/allusersinfo', auth, authAdmin, userCtrl.getAllUsers);
-router.get('/userinfo', auth, userCtrl.getUserInfo);
-router.patch('/updateprofile', auth, userCtrl.updateUserDetails);
-router.delete('/deleteprofile/:id', auth, authAdmin, userCtrl.deleteUser);
+// router.patch('/updaterights/:id', auth, authAdmin, userCtrl.updateUsersRole);
+// router.get('/allusersinfo', auth, authAdmin, userCtrl.getAllUsers);
+// router.get('/userinfo', auth, userCtrl.getUserInfo);
+// router.patch('/updateprofile', auth, userCtrl.updateUserDetails);
+// router.delete('/deleteprofile/:id', auth, authAdmin, userCtrl.deleteUser);
 
 module.exports = router;

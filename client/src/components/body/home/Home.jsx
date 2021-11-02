@@ -15,17 +15,8 @@ import Department from './Department';
 import Footer from './Footer';
 
 const Home_main = () => {
-    // window.onload = function() {
-    //     if(!window.location.hash) {
-    //         window.location = window.location + '#loaded';
-    //         window.location.reload();
-    //     }
-    // }
-    // window.location.reload(true);
-
     return (
         <>
-
             <div className="home_main">
                 <section className="mt-5">
                     <div className="flx-home" id="home-div">

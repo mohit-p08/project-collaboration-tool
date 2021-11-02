@@ -12,6 +12,7 @@ Functions supported:
 
 Global variables: user id
 */
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { isEmail } from '../../utils/validation/Validation';

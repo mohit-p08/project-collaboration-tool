@@ -17,6 +17,7 @@ Functions supported:
 
 Global variables: user id, project id
 */
+
 const Projects = require('../models/projectModel');
 const Profile = require('../models/profileModel');
 const Users = require('../models/userModel');
@@ -28,9 +29,15 @@ const projectCtrl = {
             const { title, overview, description, requirements, github, hiringStatus, likes } = req.body;
 
             const newProject = new Projects({
-                creator: req.user.id, title, overview, description, requirements, github, hiringStatus, likes
+                creator: req.user.id,
+                title,
+                overview,
+                description,
+                requirements,
+                github,
+                hiringStatus,
+                likes
             });
-            console.log(newProject);
 
             await newProject.save();
 
@@ -46,7 +53,6 @@ const projectCtrl = {
         try {
             const projects = await Projects.find();
 
-            // console.log(projects);
             res.status(200).json(projects);
         } catch (err) {
             return res.status(500).json({ msg: err.message });
@@ -72,7 +78,7 @@ const projectCtrl = {
                 areaOfInterest: owner.areaOfInterest,
                 contact: owner.contact
             };
-            // console.log(result);
+
             res.status(200).json(result);
         } catch (err) {
             return res.status(500).json({ msg: err.message });
@@ -84,7 +90,7 @@ const projectCtrl = {
         try {
             const id = req.params.id;
             const { requirements, hiringStatus } = req.body;
-            // console.log(requirements, hiringStatus);
+
             if (!requirements && !hiringStatus)
                 return res.status(400).json({ msg: "You are allowed to update only requirements and hiring status!" });
 
@@ -99,6 +105,7 @@ const projectCtrl = {
                     requirements,
                     hiringStatus
                 });
+
                 res.json({ msg: "Project updated successfully!" });
             } else {
                 res.json({ msg: "Invalid Authentication!" });
@@ -144,7 +151,7 @@ const projectCtrl = {
                 } else {
                     projectData.likes = projectData.likes.filter((id) => id !== String(req.user.id));
                 }
-                
+
                 await Projects.findByIdAndUpdate(id, projectData, { new: true });
 
                 res.json({ msg: "Project liked successfully!" });
