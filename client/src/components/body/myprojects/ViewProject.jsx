@@ -65,14 +65,14 @@ const ViewProject = () => {
                             {editProject.overview}
                         </div>
 
-                        <div className="project-img ">
-                            {/* <ProjectImgCarousel /> */}
+                        <div className="project-image">
+                            <ProjectImgCarousel />
                         </div>
                     </div>
 
 
                     {/* division3 */}
-                    <div className="project-details">
+                    <div className="project-details mt-5">
                         <div className="project-description">
                             <h5>Description:</h5>
                             <br />
@@ -114,12 +114,12 @@ const ViewProject = () => {
 
 
                 {/* Owner Profile Information Division  */}
-                <div className="flx-ownerProfile">
+                {/* <div className="flx-ownerProfile">
                     <h2 className="d-flex" >Project</h2>
                     <h2 className="d-flex" >Owner</h2>
-                    <div className="owner-profile-img">
+                    <div className="owner-profile-img"> */}
                         {/* <i className="bi bi-person-fill"></i> */}
-                        <img className="" src={profile.avatar} alt="" />
+                        {/* <img className="" src={profile.avatar} alt="" />
                     </div>
 
                     <div className="owner-info">
@@ -134,15 +134,16 @@ const ViewProject = () => {
                     </div>
 
                     <div className="Button-showProfile">
-                        {/* <button>
+                        <button>
                             <span><Link to='/dashboard'>Show Profile</Link></span>
-                        </button> */}
+                        </button>
                     </div>
-                </div>
+                </div> */}
 
             </div>
+
             {/* Using Footer Module on Home Page */}
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

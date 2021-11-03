@@ -35,13 +35,13 @@ const Projects = () => {
     return (
         <>
         <div className="projects-main-container">
-            <div className="grd-projects mt-5 p-5">
+            <div className="grd-project mt-5 p-5">
                 {
                     projects.map(project => {
                         return (
                             <>
                                 {/* key={project._id} */}
-                                <div className="Card">
+                                <div className="PCard">
 
                                     {/* Project Images  */}
                                     <div className="img-div">
@@ -69,7 +69,6 @@ const Projects = () => {
                                             <NavLink exact to={`/joinproject/${project._id}`}>
                                                 <button className="button button-readmore"> <b> Read More </b></button>
                                             </NavLink>
-
                                     </div>
 
                                 </div>

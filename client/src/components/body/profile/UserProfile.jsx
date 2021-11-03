@@ -29,9 +29,9 @@ const UserProfile = () => {
                                     <div className="user-img">
                                         <img src={user.avatar} className="" alt="" />
                                     </div>
-                                    <div className="useName mt-4">
+                                    <h6 className="useName mt-4">
                                         {user.name}
-                                    </div>
+                                    </h6>
                                 </div>
 
                                 <div className="vertical-line"></div>
