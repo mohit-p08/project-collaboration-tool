@@ -28,17 +28,24 @@ const Navbar = () => {
     }
 
     const userLink = () => {
-        return <li className="drop-nav">
-            <Link to="#" className="avatar">
-                <img className="profile_dp" src={user.avatar} alt="" /> {user.name} <i className="fas fa-angle-down"></i>
-            </Link>
-            <ul className="dropdown">
-                <li><Link to="/dashboard">My Profile</Link></li>
-                <li><Link to="/myprojects">My Projects</Link></li>
-                <li><Link to="/resetpassword">Change Password</Link></li>
-                <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
-            </ul>
-        </li>
+        return (
+            <>
+                <li className="drop-nav">
+                    <Link to="#" className="avatar">
+                        <>
+                            <img className="profile_dp" src={user.avatar} alt="" /> &nbsp;
+                            {user.name} &nbsp;
+                            <i className="fas fa-angle-down"></i> 
+                        </>
+                    </Link>
+                    <div className="dropdown-content">
+                            <><Link to="/dashboard">My Profile</Link></>
+                            <><Link to="/myprojects">My Projects</Link></>
+                            <><Link to="/resetpassword">Change Password</Link></>
+                            <><Link to="/" onClick={handleLogout}>Logout</Link></>
+                    </div>
+                </li>
+            </> )
     }
 
     return (
