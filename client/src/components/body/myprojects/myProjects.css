@@ -9,6 +9,10 @@
     background-color: #fff;
 }
 
+.myCard:hover{
+    transform: scale(1.05);
+}
+
 .myCard{
     box-shadow:0 10px 15px rgba(181,181,181,.7);
     background:#fff;

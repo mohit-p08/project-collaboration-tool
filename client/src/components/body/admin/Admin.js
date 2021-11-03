@@ -9,7 +9,7 @@ const Admin = () => {
     <>
       <div className="admin-main-container ">
         <div className="admin-main mt-5 p-3">
-          <div className="admin-dropdown-div m-3">
+          {/* <div className="admin-dropdown-div m-3">
             <div className="dropdown1-div">
               <span>Filter By</span>
               <div className="dropdown-1">
@@ -31,7 +31,7 @@ const Admin = () => {
                 </select>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="admin-data-div">
             <AdminChart />

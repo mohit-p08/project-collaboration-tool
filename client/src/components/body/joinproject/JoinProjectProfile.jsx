@@ -152,11 +152,21 @@ const JoinProjectProfile = () => {
                     <div className="owner-info">
                         <h6>Name: {profile.name}</h6>
                         {/* <h6>E-mail: {profile.email}</h6> */}
-                        <h6>Contact: {profile.contact}</h6>
+                        <h6>Contact: <a href={`tel:${profile.contact}`}>{profile.contact}</a></h6>
                         <h6>Institute: {profile.institute}</h6>
                         <h6>Department: {profile.department}</h6>
-                        <h6>Github: {profile.github}</h6>
-                        <h6>LinkedIn: {profile.LinkedIn}</h6>
+                        <h6>Github:
+                            {
+                                profile.github ? <a href={`${profile.github}`} rel="noopener noreferrer" target="_blank">{` ${profile.github}`}</a>
+                                    : " NA"
+                            }
+                        </h6>
+                        <h6>LinkedIn:
+                            {
+                                profile.LinkedIn ? <a href={`${profile.LinkedIn}`} rel="noopener noreferrer" target="_blank">{` ${profile.LinkedIn}`}</a>
+                                    : " NA"
+                            }
+                        </h6>
                         <h6>Area of Interest: {profile.areaOfInterest}</h6>
                     </div>
                 </div>

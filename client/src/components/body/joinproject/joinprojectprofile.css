@@ -156,11 +156,6 @@
       border: 2px solid #09e691;
     }
   }
-  
-
-
-
-
 
 /* owner-profile */
 
@@ -170,7 +165,8 @@
   /* box-shadow: 3px 3px 10px gray,-1px -1px 10px gray; */
   border: 2px solid silver;
   border-radius: 7px;
-  height: 35em;
+  background-color: #fff;
+  height: 25em;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

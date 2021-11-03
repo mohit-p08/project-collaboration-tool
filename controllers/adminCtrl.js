@@ -28,7 +28,7 @@ const adminCtrl = {
                 const totalUsers = await Users.count();
                 const totalProjects = await Projects.count();
                 const hiringProjects = await Projects.count({ "hiringStatus": "0" });
-                const requests = await Request.count();
+                const requests = await Request.find();
 
                 const result = {
                     totalUsers: totalUsers,

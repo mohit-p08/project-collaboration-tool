@@ -15,7 +15,7 @@ import axios from 'axios';
 
 const Navbar = () => {
     const auth = useSelector(state => state.auth);
-    const { user, isLogged } = auth;
+    const { user, isLogged, isAdmin } = auth;
 
     const handleLogout = async () => {
         try {
@@ -39,6 +39,9 @@ const Navbar = () => {
                         </>
                     </Link>
                     <div className="dropdown-content">
+                        <>{
+                            isAdmin ? <Link to="/admin">Admin Panel</Link> : <></>
+                        }</>
                         <><Link to="/dashboard">My Profile</Link></>
                         <><Link to="/myprojects">My Projects</Link></>
                         <><Link to="/resetpassword">Change Password</Link></>

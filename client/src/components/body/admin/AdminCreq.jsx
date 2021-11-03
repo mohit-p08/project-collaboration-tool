@@ -43,10 +43,8 @@ const AndminCreq = () => {
       promise.then(function (val) {
         setAdmin(val.data);
       });
-      // console.log(admin.requests[0].projectID);
     }
   });
-
 
   return (
     <>
@@ -56,6 +54,10 @@ const AndminCreq = () => {
           <table>
             {/* Table Heading  */}
             <tr>
+              {/* <th>Project ID</th>
+              <th>Collaborator ID</th>
+              <th>Request Status</th>
+              <th>Selection Status</th> */}
               <th>Project Name</th>
               <th>Project Owner</th>
               <th>Request Sender</th>
@@ -71,10 +73,9 @@ const AndminCreq = () => {
               return (
                 <>
                   <tr>
-                    {/* <td><Link>{value.owner}</Link></td>
-                    <td><Link>{admin.requests[0].projectID}</Link></td>
+                    {/* <td><Link>{value.owner}</Link></td> */}
+                    {/* <td>{admin.requests.projectID}</td>
                     <td>{admin.requests.collaboratorID}</td>
-                    <td>{}</td>
                     <td>{admin.requests.requestStatus}</td>
                     <td>{admin.requests.selected}</td> */}
                   </tr>
