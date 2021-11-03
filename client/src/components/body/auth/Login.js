@@ -80,8 +80,8 @@ function Login() {
     }
 
     return (
-        <div className="login_main mt-5 pb-5">
-            <div className="login_page mt-5 py-3 px-5">
+        <div className="login_main mt-3 p-3 row">
+            <div className="login_page my-5 pt-5 pb-4 px-5 col-6">
                 <h2>Login</h2>
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}

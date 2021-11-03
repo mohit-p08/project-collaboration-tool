@@ -35,17 +35,17 @@ const MyProjects = () => {
 
     return (
         <>
-            <div className="grd-projects mt-5 p-5">
+            <div className="grd-myprojects mt-5 p-5">
                 {
                     projects.map(project => {
                         return (
                             <>
                                 {/* key={project._id} */}
-                                <div className="Card">
+                                <div className="myCard">
 
                                     {/* Project Images  */}
                                     <div className="img-div">
-                                        <ProjectImgCarousel className="project-img" />
+                                        <ProjectImgCarousel className="myproject-img" />
                                     </div>
 
 
@@ -59,13 +59,13 @@ const MyProjects = () => {
 
 
                                         {/* Project Card Bottom Division Like and Read More  */}
-                                        <div className="flx-card-bottom">
+                                        <div className="flx-mycard-bottom">
 
-                                            <div className="d-flex flex-row">
+                                            {/* <div className="d-flex flex-row">
                                                 <span className="">
                                                     <i className="bi bi-heart-fill btn pt-2 like-icon"></i> <b>30k</b>
                                                 </span>
-                                            </div>
+                                            </div> */}
 
                                             <NavLink exact to={`/viewproject/${project._id}`}>
                                                 <button className="button button-readmore"> <b> Read More </b></button>
@@ -85,7 +85,7 @@ const MyProjects = () => {
                 }
             </div>
             {/* Using Footer Module on Home Page */}
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

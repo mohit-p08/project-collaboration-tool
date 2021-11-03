@@ -65,8 +65,8 @@ function Register() {
     }
 
     return (
-        <div className="login_main mt-5 pb-5">
-            <div className="login_page mt-5 py-3 px-5">
+        <div className="login_main mt-5 pb-5 row">
+            <div className="login_page mt-4 py-3 px-5 col-6">
                 <h2>Register</h2>
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
