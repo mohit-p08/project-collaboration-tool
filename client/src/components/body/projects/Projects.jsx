@@ -40,6 +40,7 @@ const Projects = () => {
 
     return (
         <>
+        <div className="projects-main-container">
             <div className="grd-projects mt-5 p-5">
                 {
                     projects.map(project => {
@@ -60,37 +61,33 @@ const Projects = () => {
                                         <span><b>{project.title}</b></span>
                                         <br /><br />
                                         <p>{project.overview}</p>
-                                        {/* <p>Project Details: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, placeat accusantium expedita magni voluptate vel eveniet explicabo error deleniti quia!</p> */}
 
+                                    </div>
 
-                                        {/* Project Card Bottom Division Like and Read More  */}
-                                        <div className="flx-card-bottom">
+                                    <div className="flx-card-bottom">
 
                                             <div className="d-flex flex-row">
-                                                <span className="">
+                                                <button className="like-button">
                                                     <i className="bi bi-heart-fill btn pt-2 like-icon"></i> <b>30k</b>
-                                                </span>
+                                                </button>
                                             </div>
 
                                             <NavLink exact to={`/joinproject/${project._id}`}>
                                                 <button className="button button-readmore"> <b> Read More </b></button>
                                             </NavLink>
 
-                                        </div>
-
                                     </div>
 
                                 </div>
                             </>
-
                         )
-                    }
-
-                    )
+                    })
                 }
             </div>
-            {/* Using Footer Module on Home Page */}
-            <Footer />
+        </div>
+        
+        {/* Using Footer Module on Home Page */}
+        {/* <Footer /> */}
         </>
     )
 }
