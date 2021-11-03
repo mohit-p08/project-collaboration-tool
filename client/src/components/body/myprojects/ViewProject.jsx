@@ -66,7 +66,7 @@ const ViewProject = () => {
                         </div>
 
                         <div className="project-img ">
-                            {/* <ProjectImgCarousel /> */}
+                            <ProjectImgCarousel />
                         </div>
                     </div>
 

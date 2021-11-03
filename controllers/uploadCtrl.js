@@ -27,7 +27,6 @@ const uploadCtrl = {
     uploadAvatar: (req, res) => {
         try {
             const file = req.files.file;
-            console.log(file);
 
             cloudinary.v2.uploader.upload(file.tempFilePath, {
                 folder: 'avatar', width: 150, height: 150, crop: "fill"

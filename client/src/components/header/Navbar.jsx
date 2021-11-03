@@ -35,17 +35,18 @@ const Navbar = () => {
                         <>
                             <img className="profile_dp" src={user.avatar} alt="" /> &nbsp;
                             {user.name} &nbsp;
-                            <i className="fas fa-angle-down"></i> 
+                            <i className="fas fa-angle-down"></i>
                         </>
                     </Link>
                     <div className="dropdown-content">
-                            <><Link to="/dashboard">My Profile</Link></>
-                            <><Link to="/myprojects">My Projects</Link></>
-                            <><Link to="/resetpassword">Change Password</Link></>
-                            <><Link to="/" onClick={handleLogout}>Logout</Link></>
+                        <><Link to="/dashboard">My Profile</Link></>
+                        <><Link to="/myprojects">My Projects</Link></>
+                        <><Link to="/resetpassword">Change Password</Link></>
+                        <><Link to="/" onClick={handleLogout}>Logout</Link></>
                     </div>
                 </li>
-            </> )
+            </>
+        )
     }
 
     return (
