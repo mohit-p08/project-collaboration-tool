@@ -7,10 +7,9 @@ Modification history :
     Change Container size
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
-import { useHistory } from 'react-router-dom';
 import { isEmpty, isEmail } from '../../utils/validation/Validation';
 
 const initialState = {
@@ -25,8 +24,7 @@ const initialState = {
 const Contact = () => {
 
     const [data, setData] = useState(initialState);
-    const {name, email, title, description, err, success} = data;
-    const history = useHistory();
+    const { name, email, title, description, err, success } = data;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -76,7 +74,7 @@ const Contact = () => {
                                         <label htmlFor="fullname" className="form-label">
                                             Full Name*
                                         </label>
-                                        <input name="name" value={name} onChange={handleChange}  type="text" className="form-control" id="fullname" placeholder="Enter your name" required />
+                                        <input name="name" value={name} onChange={handleChange} type="text" className="form-control" id="fullname" placeholder="Enter your name" required />
                                     </div>
 
                                     <div className="mb-3">

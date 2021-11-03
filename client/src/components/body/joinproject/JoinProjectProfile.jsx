@@ -8,7 +8,7 @@ Modification history :
 */
 
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { showSuccessMsg, showErrMsg } from '../../utils/notification/Notification';
@@ -28,7 +28,7 @@ const JoinProjectProfile = () => {
     const token = useSelector(state => state.token);
     const [err, setErr] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [num, setNum] = useState(0);
+    const [setNum] = useState(0);
 
     useEffect(() => {
         if (projects.length !== 0) {
@@ -113,7 +113,7 @@ const JoinProjectProfile = () => {
                     <div className="flx-project-bottom">
                         <div className="GithubLink-div">
                             <b> Github Link: </b>
-                            <a href={`${editProject.github}`} target="_blank">{editProject.github}</a>
+                            <a href={`${editProject.github}`} rel="noopener noreferrer" target="_blank">{editProject.github}</a>
                         </div>
 
                         <div className="Collabration-status">
@@ -122,16 +122,16 @@ const JoinProjectProfile = () => {
                         </div>
 
                         <div className="request-button-div">
-                            {editProject.hiringStatus === 0 ? 
-                            <button onClick={handleUpdate} className="request-button">
-                                <span>Request</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
-                            </button>
-                            :
-                            <button onClick={handleUpdate} className="request-button" disabled>
-                                <span>Request</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
-                            </button>}
+                            {editProject.hiringStatus === 0 ?
+                                <button onClick={handleUpdate} className="request-button">
+                                    <span>Request</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
+                                </button>
+                                :
+                                <button onClick={handleUpdate} className="request-button" disabled>
+                                    <span>Request</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
+                                </button>}
                             {err && showErrMsg(err)}
                             {success && showSuccessMsg(success)}
                         </div>
@@ -158,12 +158,6 @@ const JoinProjectProfile = () => {
                         <h6>Github: {profile.github}</h6>
                         <h6>LinkedIn: {profile.LinkedIn}</h6>
                         <h6>Area of Interest: {profile.areaOfInterest}</h6>
-                    </div>
-
-                    <div className="Button-showProfile">
-                        {/* <button>
-                            <span><Link to='/dashboard'>Show Profile</Link></span>
-                        </button> */}
                     </div>
                 </div>
 

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './input-userprofile-info.css'
-import userAvtar from "./userAvtar.png"
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { isEmpty, isContact } from '../../utils/validation/Validation';
@@ -19,22 +18,19 @@ const initialState = {
     success: ''
 }
 
-
 const InputUserProfileInfo = () => {
 
     const auth = useSelector(state => state.auth);
     const token = useSelector(state => state.token);
-    const users = useSelector(state => state.users);
     const history = useHistory();
 
-    const { user, isAdmin } = auth;
+    const { user } = auth;
 
     const [data, setData] = useState(initialState);
     const { name, institute, department, contact, github, linkedIn, areaOfInterest, err, success } = data;
 
     const [avatar, setAvatar] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [callback, setCallback] = useState(false);
 
     // console.log(user.avatar);
     const handleChange = e => {
@@ -51,7 +47,7 @@ const InputUserProfileInfo = () => {
             //     return setData({ ...data, err: '', success: "Please enter valid contact number" });
 
             if (user.flag === 0) {
-                console.log(name, avatar, institute, department, contact, github, linkedIn, areaOfInterest);
+
                 axios.post('/profile/createprofile', {
                     name: name ? name : user.name,
                     avatar: avatar ? avatar : user.avatar,
@@ -80,9 +76,8 @@ const InputUserProfileInfo = () => {
                     headers: { Authorization: token }
                 });
             }
-            // window.location.href('/');
+
             history.push('/');
-            // this.setState({ redirect: "/" });
         } catch (err) {
             setData({ ...data, err: err.response.data.msg, success: '' });
         }
@@ -128,7 +123,7 @@ const InputUserProfileInfo = () => {
                 <div class="input-userprofile-sub-container">
 
                     <div class="input-userprofile-header">
-                        {user.flag == 0 ? "Complete You Profile" : "Update Your Profile"}
+                        {user.flag === 0 ? "Complete You Profile" : "Update Your Profile"}
                     </div>
 
                     <div class="input-form-div">

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { showSuccessMsg, showErrMsg } from '../../utils/notification/Notification';
 import axios from 'axios';
-import { fetchAllUsers, dispatchGetAllUsers } from '../../../redux/actions/usersAction';
 import './adminchart.css'
 
 const initialState = {
@@ -42,15 +41,8 @@ const AdminChart = () => {
             promise.then(function (val) {
                 setAdmin(val.data);
             });
-            // console.log(admin);
         }
     });
-
-
-
-
-
-
 
 
     return (

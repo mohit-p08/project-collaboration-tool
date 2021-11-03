@@ -9,18 +9,14 @@ Modification history :
 */
 
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './updateproject.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
 
 const initialState = {
-    title: '',
-    overview: '',
-    description: '',
     requirements: '',
-    github: '',
     hiringStatus: '',
     err: '',
     success: ''
@@ -31,13 +27,12 @@ const UpdateProject = () => {
     const [editProject, setEditProject] = useState([]);
     const [checkHiringStatus, setcheckHiringStatus] = useState(false);
 
-    const auth = useSelector(state => state.auth);
     const token = useSelector(state => state.token);
     const projects = useSelector(state => state.projects);
     const history = useHistory();
 
     const [data, setData] = useState(initialState);
-    const { title, overview, description, requirements, github, hiringStatus, err, success } = data;
+    const {  requirements, hiringStatus, err, success } = data;
 
     // const [err, setErr] = useState(false);
     // const [success, setSuccess] = useState(false);
@@ -55,26 +50,18 @@ const UpdateProject = () => {
         }
     }, [projects, id, history]);
 
-    // console.log(checkHiringStatus);
-
-
-
-    //setvlaue of differnt filled according their name
-
     const handleChange = (e) => {
         const { name, value } = e.target;
 
         setData({ ...data, [name]: value, err: '', success: '' });
     }
 
-    //after submit data below function use to post data to api
     const handleUpdate = () => {
-
         try {
             console.log(requirements,
                 hiringStatus)
             axios.patch(`/projects/updateproject/${editProject._id}`, {
-                requirements : requirements ? requirements : editProject.requirements,
+                requirements: requirements ? requirements : editProject.requirements,
                 hiringStatus
             }, {
                 headers: { Authorization: token }
@@ -191,9 +178,9 @@ const UpdateProject = () => {
                                             <option value={editProject.hiringStatus}>{checkHiringStatus}</option>
                                             {
                                                 editProject.hiringStatus === 0 ?
-                                                <option value="1">Closed</option>
-                                                :
-                                                <option value="0">Active</option>
+                                                    <option value="1">Closed</option>
+                                                    :
+                                                    <option value="0">Active</option>
                                             }
                                         </select>
                                     </div>

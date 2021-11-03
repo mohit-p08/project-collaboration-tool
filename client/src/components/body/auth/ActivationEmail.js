@@ -10,6 +10,7 @@ What the module does: activates the account
 Functions supported:
 1. ActivationEmail   => Input: activation_token;              Output: Success/err
 */
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';

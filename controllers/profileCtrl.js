@@ -15,12 +15,13 @@ Functions supported:
 
 Global variables: user id
 */
+
 const Profile = require('../models/profileModel');
 const Users = require('../models/userModel');
 const Projects = require('../models/projectModel');
 
 const profileCtrl = {
-    // create profile
+    // create profile of the user
     createProfile: async (req, res) => {
         try {
             const id = req.user.id;
@@ -82,8 +83,6 @@ const profileCtrl = {
                     role: users.role
                 }
 
-                console.log('profile created');
-
                 res.json(user);
             } else {
                 const user = {
@@ -91,8 +90,6 @@ const profileCtrl = {
                     email: users.email,
                     flag: 0
                 }
-
-                console.log('Profile not created');
 
                 return res.json(user);
             }
@@ -113,7 +110,7 @@ const profileCtrl = {
             const { institute, department, contact, github, linkedIn, areaOfInterest } = req.body;
 
             const user = {name: name, avatar: avatar, institute: institute, department: department, contact: contact, github: github, linkedIn: linkedIn, areaOfInterest: areaOfInterest};
-            console.log(user);
+
             await Profile.findOneAndUpdate({ creator: req.user.id }, {
                 institute, department, contact, github, linkedIn, areaOfInterest
             });

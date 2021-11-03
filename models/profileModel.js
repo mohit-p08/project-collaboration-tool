@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// database chema of profile
+// database schema of profile
 const profileSchema = new mongoose.Schema({
     creator: {
         type: String

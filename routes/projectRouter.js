@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const projectCtrl = require('../controllers/projectCtrl');
 const auth = require('../middleware/auth');
-const authAdmin = require('../middleware/authAdmin');
 
 // routes for various request
 router.post('/postproject', auth, projectCtrl.postProject);

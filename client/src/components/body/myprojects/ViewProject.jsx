@@ -11,7 +11,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { showSuccessMsg, showErrMsg } from '../../utils/notification/Notification';
 import './viewproject.css'
 import img from '../projects/default_image.png';
 import ProjectImgCarousel from '../projects/ProjectImgCarousel'
@@ -25,10 +24,6 @@ const ViewProject = () => {
     const [checkHiringStatus, setcheckHiringStatus] = useState(false);
 
     const projects = useSelector(state => state.projects);
-    const token = useSelector(state => state.token);
-    const [err, setErr] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [num, setNum] = useState(0);
 
     useEffect(() => {
         if (projects.length !== 0) {
@@ -48,23 +43,6 @@ const ViewProject = () => {
             history.push(`/myprojects`);
         }
     }, [projects, id, history]);
-
-    const handleUpdate = async () => {
-        try {
-            // const res = await axios.post(`/joinproject/${editProject._id}`, {
-            //     hiringStatus: checkHiringStatus ? 1 : 0
-            // }, {
-            //     headers: { Authorization: token }
-            // });
-
-            // setSuccess(res.data.msg);
-            // setNum(0);
-
-        } catch (err) {
-            err.response.data.msg && setErr(err.response.data.msg);
-        }
-    }
-
 
     return (
         <>
@@ -113,7 +91,7 @@ const ViewProject = () => {
                     <div className="flx-project-bottom">
                         <div className="GithubLink-div">
                             <b> Github Link: </b>
-                            <a href={`${editProject.github}`} target="_blank">{editProject.github}</a>
+                            <a href={`${editProject.github}`} rel="noopener noreferrer" target="_blank">{editProject.github}</a>
                         </div>
 
                         <div className="Collabration-status">
@@ -122,15 +100,12 @@ const ViewProject = () => {
                         </div>
 
                         <div className="request-button-div">
-                        <Link to={`/updateproject/${editProject._id}`}>
-                            <button className="request-button">
-                                <span>EDIT</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
-                            </button>
-                        </Link>
-
-                            {err && showErrMsg(err)}
-                            {success && showSuccessMsg(success)}
+                            <Link to={`/updateproject/${editProject._id}`}>
+                                <button className="request-button">
+                                    <span>EDIT</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z" /></svg>
+                                </button>
+                            </Link>
                         </div>
                     </div>
 

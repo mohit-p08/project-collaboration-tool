@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProjects, dispatchGetAllProjects } from '../../../redux/actions/projectAction';
 import { NavLink } from 'react-router-dom'
 import './projects.css'
-import Dataproject from '../home/Dataproject'
 import ProjectImgCarousel from './ProjectImgCarousel'
 import Footer from '../home/Footer';
 
@@ -22,20 +21,15 @@ const Projects = () => {
     const token = useSelector(state => state.token);
     const projects = useSelector(state => state.projects);
 
-    const { user, isAdmin } = auth;
-
-    const [avatar, setAvatar] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [callback, setCallback] = useState(false);
+    const { isAdmin } = auth;
+    const [callback] = useState(false);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (isAdmin || user) {
-            fetchAllProjects(token).then(res => {
-                dispatch(dispatchGetAllProjects(res));
-            })
-        }
+        fetchAllProjects(token).then(res => {
+            dispatch(dispatchGetAllProjects(res));
+        })
     }, [token, isAdmin, dispatch, callback]);
 
     return (

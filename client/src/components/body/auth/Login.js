@@ -10,14 +10,14 @@ What the module does: Login user
 Functions supported:
 1. Login   => Input: email, password;              Output: Success/err
 */
+
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
 import { dispatchLogin } from '../../../redux/actions/authAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-import Footer from '../home/Footer';
 
 const initialState = {
     email: '',
@@ -29,7 +29,6 @@ const initialState = {
 function Login() {
     const [user, setUser] = useState(initialState);
     const dispatch = useDispatch();
-    // const token = useSelector(state => state.token);
     const history = useHistory();
 
     const { email, password, err, success } = user;
@@ -52,22 +51,13 @@ function Login() {
 
             dispatch(dispatchLogin());
 
-            // const user = await axios.get(`/profile/getuser/mohitprajapati11069@gmail.com`);
-            // console.log(user);
             promise.then(function (val) {
-                // console.log(val.data.user);
-                if (val.data.user.flag == 0) {
+                if (val.data.user.flag === 0) {
                     history.push('/profile');
                 } else {
                     history.push('/');
                 }
             });
-
-            // if (user.flag == 0) {
-            //     history.push('/profile');
-            // } else {
-            //     history.push('/');
-            // }
         } catch (err) {
             err.response.data.msg &&
                 setUser({ ...user, err: err.response.data.msg, success: '' });

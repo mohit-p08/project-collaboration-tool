@@ -10,6 +10,7 @@ What the module does: creates new account
 Functions supported:
 1. Login   => Input: name, email, password;              Output: Success/err
 */
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';

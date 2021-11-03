@@ -22,6 +22,7 @@ Functions supported:
 
 Global variables: --
 */
+
 const Users = require('../models/userModel');
 const Profile = require('../models/profileModel');
 const bcrypt = require('bcrypt');
@@ -177,7 +178,6 @@ const userCtrl = {
 
             const passwordHash = await bcrypt.hash(password, 12);
 
-            // console.log(req.user);
             await Users.findOneAndUpdate({ _id: req.user.id }, {
                 password: passwordHash
             });
@@ -255,13 +255,14 @@ const userCtrl = {
         try {
             const email = req.params.email;
             const user = await Users.findOne({ email }).select('-password');
-            // console.log('ssssss');
+
             res.json({ user });
         } catch (err) {
             return res.status(500).json({ msg: err.message });
         }
     },
 
+/*
     // extra
     // update role i.e., make admin or not 
     updateUsersRole: async (req, res) => {
@@ -325,7 +326,7 @@ const userCtrl = {
             return res.status(500).json({ msg: err.message });
         }
     },
-
+*/
 
 }
 

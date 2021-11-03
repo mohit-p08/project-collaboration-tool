@@ -5,6 +5,5 @@ const auth = require('../middleware/auth');
 
 // routes for various request
 router.post('/upload_avatar', uploadImage, auth, uploadCtrl.uploadAvatar);
-// router.post('/uploadprojectimage', uploadImage, auth, uploadCtrl.uploadAvatar)
 
 module.exports = router;

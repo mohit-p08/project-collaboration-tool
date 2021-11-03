@@ -17,7 +17,7 @@ app.use(fileUpload({
     useTempFiles: true
 }));
 
-// Routes
+// Routes - Prefixes
 app.use('/user', require('./routes/userRouter'));
 app.use('/projects', require('./routes/projectRouter'));
 app.use('/api', require('./routes/upload'));
@@ -29,8 +29,6 @@ app.use('/admin', require('./routes/adminRouter'));
 // DB connection
 const URI = process.env.MONGODB_URL;
 mongoose.connect(URI, {
-    // useCreateIndex: true,
-    // useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, err => {
