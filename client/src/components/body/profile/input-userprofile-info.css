@@ -5,6 +5,7 @@
   align-items: center;
   padding: 10px;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -109,7 +110,7 @@
 }
 .userProfile-details .input-box input:focus,
 .userProfile-details .input-box input:valid{
-  border-color: #9b59b6;
+  border-color: #6991c7;
 }
     
   /* SAVE button  */

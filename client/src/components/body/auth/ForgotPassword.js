@@ -48,7 +48,7 @@ function ForgotPassword() {
     }
 
     return (
-        <div className="fg_pass mt-3 p-3">
+        <div className="fg_pass mt-5 p-5">
             <h2>Forgot Your Password?</h2>
 
             <div className="fg_row">

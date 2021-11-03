@@ -4,8 +4,8 @@
 
 .user-profile-main-container{
     background: #C9CCD3;
-    background-image: linear-gradient(to top, #3df0b4 0%, #accbee 100%);
     overflow: hidden !important;
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }
 
 .user-profile-heading{
@@ -72,6 +72,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 35em;
+    color: gray;
+    letter-spacing: 1px;
 }
 
 .info-div b{

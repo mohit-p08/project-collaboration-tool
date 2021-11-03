@@ -1,11 +1,11 @@
 .projects-main-container{
-    background: #C9CCD3;
-    background-image: linear-gradient(to right, #fdf9ee 0%, #accbee 100%);
+    background: #ffffff;
+    /* background-image: linear-gradient(to top, #fdf9ee 0%, #accbee 100%); */
 }
 
-.grd-projects{
+.grd-project{
     display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(300px,3fr));
+    grid-template-columns: repeat(3 , minmax(300px,3fr));
     grid-template-rows: auto;
     grid-gap: 3em;
     
@@ -15,9 +15,9 @@
     background-color: #fefefe;
 }
 
-.Card{
+.PCard{
     box-shadow:0 10px 15px rgba(181,181,181,.7);
-    background:rgb(255, 255, 255);
+    background:#fff;
     padding: .5em;
     border-radius:2% 2% 2% 2%;
     transition: .4s;

@@ -1,26 +1,25 @@
-.grd-projects{
-    background: #C9CCD3;
-    background-image: linear-gradient(to top, #fdeeee 0%, #accbee 100%);
+.grd-myprojects{
+    /* background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%); */
     display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(300px,3fr));
+    grid-template-columns: repeat(3 , minmax(100px,3fr));
     grid-gap: 3em;
 }
 
-.grd-projects > div{
+.grd-myprojects > div{
     background-color: #fff;
 }
 
-.Card{
+.myCard{
     box-shadow:0 10px 15px rgba(181,181,181,.7);
     background:#fff;
     padding: .5em;
     border-radius:2% 2% 2% 2%;
+    transition: .4s;
 }
 
-.project-img{
-    padding-left: 1.5em;
+.myproject-img{
     width: 100%;
-    height: 12em ;
+    height: 12em;
 }
 
 .project-detail{
@@ -30,10 +29,10 @@
     color:#000;
 }
 
-.flx-card-bottom{
+.flx-mycard-bottom{
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
 }
 
 .Card:hover{
@@ -41,13 +40,15 @@
     box-shadow:  -3px -3px 7px rgb(212, 209, 209), 3px 3px 7px #a3b1c6;
 }
 
-.button{
+.flx-mycard-bottom button{
     border: none;
     background:#ffffff;
     color:rgb(0, 0, 0);
     font-size:1rem;
     height:40px;
+    width: 200px;
     box-shadow:inset 3px 3px 15px #b3b6b3;
+    border-radius: 1px;
 }
 
 .button-readmore{
@@ -55,7 +56,8 @@
 }
 
 .button-readmore:hover{
-    color: darkblue;
+    background: darkblue;
+    color: #fff;
     border: none;
     box-shadow:  2px 5px 10px silver;
 }
