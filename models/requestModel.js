@@ -3,13 +3,15 @@ const mongoose = require('mongoose');
 
 // database schema of request project
 const requestSchema = new mongoose.Schema({
-    projectID: {
-        type: String,
+    projectID: { 
+        type: Schema.Types.ObjectId,
+        ref: 'Projects',
         required: true
     },
 
-    collaboratorID: {
-        type: String,
+    collaboratorID: { 
+        type: Schema.Types.ObjectId,
+        ref: 'Users',
         required: true
     },
     requestStatus: {

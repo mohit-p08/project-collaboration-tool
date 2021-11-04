@@ -18,6 +18,9 @@ import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notificatio
 import { dispatchLogin } from '../../../redux/actions/authAction';
 import { useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Input from './Input';
+import Captcha from './Captcha';
 
 const initialState = {
     email: '',
@@ -30,7 +33,12 @@ function Login() {
     const [user, setUser] = useState(initialState);
     const dispatch = useDispatch();
     const history = useHistory();
+    // const [showPassword, setShowPassword] = useState(false);
 
+    // Show Password
+    // const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+
+    // authentication
     const { email, password, err, success } = user;
 
     const handleChangeInput = (e) => {
@@ -41,6 +49,8 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            // if (num === 1) {
+            // setShowPassword(false);
             const res = await axios.post('/user/login', { email, password });
             const user = await axios.get(`/user/getuser/${email}`);
             var promise = Promise.resolve(user);
@@ -50,7 +60,7 @@ function Login() {
             localStorage.setItem('firstLogin', true);
 
             dispatch(dispatchLogin());
-
+            
             promise.then(function (val) {
                 if (val.data.user.flag === 0) {
                     history.push('/profile');
@@ -58,6 +68,9 @@ function Login() {
                     history.push('/');
                 }
             });
+            // } else {
+            //     setUser({ ...user, err: 'Please verify captcha', success: '' });
+            // }
         } catch (err) {
             err.response.data.msg &&
                 setUser({ ...user, err: err.response.data.msg, success: '' });
@@ -94,8 +107,17 @@ function Login() {
 
                     <div>
                         <label htmlFor="password">Password</label>
+                        {/* <Input 
+                            label="Enter password"
+                            id="password"
+                            value={password}
+                            name="password"
+                            type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}
+                            onChange={handleChangeInput} /> */}
                         <input type="password" placeholder="Enter password*" id="password" value={password} name="password" onChange={handleChangeInput} />
                     </div>
+
+                    {/* <Captcha /> */}
 
                     <div className="login_row p-3">
                         <button type="submit" className="m-3">Login</button>

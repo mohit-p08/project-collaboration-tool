@@ -61,7 +61,7 @@ const JoinProjectProfile = () => {
             setNum(0);
 
         } catch (err) {
-            err.response.data.msg && setErr(err.response.data.msg);
+            // err.response.data.msg && setErr(err.response.data.msg);
         }
     }
 

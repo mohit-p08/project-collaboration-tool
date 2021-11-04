@@ -28,7 +28,7 @@ const adminCtrl = {
                 const totalUsers = await Users.count();
                 const totalProjects = await Projects.count();
                 const hiringProjects = await Projects.count({ "hiringStatus": "0" });
-                const requests = await Request.find();
+                const requests = await Request.find().populate(['projectID', 'collaboratorID']).exec();
 
                 const result = {
                     totalUsers: totalUsers,
@@ -36,8 +36,25 @@ const adminCtrl = {
                     hiringProjects: hiringProjects,
                     requests: requests
                 }
-
+                // console.log(result.requests._id);
                 res.json(result);
+            } else {
+                res.json({ msg: "Access Denied" });
+            }
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
+
+    getAllRequests: async (req, res) => {
+        try {
+            const id = req.user.id;
+            const admin = await Users.findById({ _id: id });
+
+            if (admin.role === 1) {
+                const requests = await Request.find().populate(['projectID', 'collaboratorID']).exec();
+
+                res.json(requests);
             } else {
                 res.json({ msg: "Access Denied" });
             }

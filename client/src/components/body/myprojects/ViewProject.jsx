@@ -41,6 +41,7 @@ const ViewProject = () => {
             })
         } else {
             history.push(`/myprojects`);
+            // window.location.replace('/myprojects');
         }
     }, [projects, id, history]);
 
@@ -110,35 +111,6 @@ const ViewProject = () => {
                     </div>
 
                 </div>
-
-
-
-                {/* Owner Profile Information Division  */}
-                {/* <div className="flx-ownerProfile">
-                    <h2 className="d-flex" >Project</h2>
-                    <h2 className="d-flex" >Owner</h2>
-                    <div className="owner-profile-img"> */}
-                        {/* <i className="bi bi-person-fill"></i> */}
-                        {/* <img className="" src={profile.avatar} alt="" />
-                    </div>
-
-                    <div className="owner-info">
-                        <h6>Name: {profile.name}</h6>
-                        <h6>E-mail: {profile.email}</h6>
-                        <h6>Contact: {profile.contact}</h6>
-                        <h6>Institute: {profile.institute}</h6>
-                        <h6>Department: {profile.department}</h6>
-                        <h6>Github: {profile.github}</h6>
-                        <h6>LinkedIn: {profile.LinkedIn}</h6>
-                        <h6>Area of Interest: {profile.areaOfInterest}</h6>
-                    </div>
-
-                    <div className="Button-showProfile">
-                        <button>
-                            <span><Link to='/dashboard'>Show Profile</Link></span>
-                        </button>
-                    </div>
-                </div> */}
 
             </div>
 

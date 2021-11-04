@@ -58,8 +58,6 @@ const UpdateProject = () => {
 
     const handleUpdate = () => {
         try {
-            console.log(requirements,
-                hiringStatus)
             axios.patch(`/projects/updateproject/${editProject._id}`, {
                 requirements: requirements ? requirements : editProject.requirements,
                 hiringStatus
@@ -67,6 +65,7 @@ const UpdateProject = () => {
                 headers: { Authorization: token }
             });
             setData({ ...data, err: '', success: "Project Updated Successfully :)" });
+            // window.location.replace(`/viewproject/${editProject._id}`);
         } catch (err) {
             setData({ ...data, err: err.response.data.msg, success: '' });
         }
@@ -91,7 +90,7 @@ const UpdateProject = () => {
                                 {err && showErrMsg(err)}
                                 {success && showSuccessMsg(success)}
 
-                                <form method="">
+                                <form method="" onSubmit={handleUpdate}>
 
                                     <div className="input-field">
                                         <label htmlFor="title" className="form-label">TITLE:</label>
@@ -186,7 +185,7 @@ const UpdateProject = () => {
                                     </div>
 
                                     <div className="row justify-content-center">
-                                        <button type="submit" onClick={handleUpdate} className="btn btn-success col-6 button-upload">UPDATE</button>
+                                        <button type="submit" className="btn btn-success col-6 button-upload">UPDATE</button>
                                     </div>
 
                                 </form>

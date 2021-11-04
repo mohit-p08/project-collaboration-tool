@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 const UserProfile = () => {
 
     const auth = useSelector(state => state.auth);
+    console.log(auth);
     const { user } = auth;
 
     return (

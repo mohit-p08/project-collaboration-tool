@@ -16,6 +16,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification';
 import { isEmpty, isEmail, isLength, isMatch } from '../../utils/validation/Validation';
+import Input from './Input';
+import Captcha from './Captcha';
 
 const initialState = {
     name: '',
@@ -28,8 +30,11 @@ const initialState = {
 
 function Register() {
     const [user, setUser] = useState(initialState);
+    const [showPassword, setShowPassword] = useState(false);
 
     const { name, email, password, cf_password, err, success } = user;
+
+    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
@@ -86,6 +91,8 @@ function Register() {
 
                     <div>
                         <label htmlFor="password">Password</label>
+                        {/* <Input type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} placeholder="Enter password" id="password"
+                            value={password} name="password" onChange={handleChangeInput} /> */}
                         <input type="password" placeholder="Enter password" id="password"
                             value={password} name="password" onChange={handleChangeInput} />
                     </div>
@@ -95,6 +102,8 @@ function Register() {
                         <input type="password" placeholder="Confirm password" id="cf_password"
                             value={cf_password} name="cf_password" onChange={handleChangeInput} />
                     </div>
+
+                    {/* <Captcha /> */}
 
                     <div className="login_row m-2">
                         <button type="submit">Register</button>

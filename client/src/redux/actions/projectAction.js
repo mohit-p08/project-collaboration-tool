@@ -5,6 +5,7 @@ export const fetchAllProjects = async (token) => {
     const res = await axios.get('/projects', {
         headers: { Authorization: token }
     });
+
     return res;
 }
 

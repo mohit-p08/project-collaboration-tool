@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+Schema = mongoose.Schema;
 
 // database schema of project
 const projectSchema = new mongoose.Schema({
-    creator: {
-        type: String,
+    creator: { 
+        type: Schema.Types.ObjectId,
+        ref: 'Users',
         required: true
     },
     title: {

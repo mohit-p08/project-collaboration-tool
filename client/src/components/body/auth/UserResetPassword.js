@@ -66,12 +66,14 @@ function UserResetPassword() {
                         {err && showErrMsg(err)}
                         {success && showSuccessMsg(success)}
 
-                        <label htmlFor="password" className="my-3"><h6>Password</h6></label>
+                        <label htmlFor="password" className="my-3"><h6>New Password</h6></label>
                         <input type="password" name="password" id="password" value={password}
+                            placeholder="Enter your new password"
                             onChange={handleChangeInput} />
 
-                        <label htmlFor="cf_password" className="my-3"><h6>Confirm Password</h6></label>
+                        <label htmlFor="cf_password" className="my-3"><h6>Confirm New Password</h6></label>
                         <input type="password" name="cf_password" id="cf_password" value={cf_password}
+                            placeholder="Enter your new password"
                             onChange={handleChangeInput} />
 
                         <button onClick={handleResetPassword} className="my-5">Reset Password</button>

@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+Schema = mongoose.Schema;
 
 // database schema of profile
 const profileSchema = new mongoose.Schema({
-    creator: {
-        type: String
+    creator: { 
+        type: Schema.Types.ObjectId,
+        ref: 'Users',
+        required: true
     },
     institute: {
         type: String,

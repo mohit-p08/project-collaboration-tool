@@ -166,7 +166,8 @@
   border: 2px solid silver;
   border-radius: 7px;
   background-color: #fff;
-  height: 25em;
+  height: fit-content;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

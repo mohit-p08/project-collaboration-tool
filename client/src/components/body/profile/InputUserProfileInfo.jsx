@@ -38,7 +38,8 @@ const InputUserProfileInfo = () => {
         setData({ ...data, [name]: value, err: '', success: '' });
     }
 
-    const handleUpdate = () => {
+    const handleUpdate = (e) => {
+        e.preventDefault();
         try {
             // if (isEmpty(name) || isEmpty(institute) || isEmpty(department) || isEmpty(contact) || isEmpty(areaOfInterest))
             //     return setData({ ...data, err: '', success: "Please fill required fields" });
@@ -77,7 +78,8 @@ const InputUserProfileInfo = () => {
                 });
             }
 
-            history.push('/');
+            // history.push('/dashboard');
+            window.location.replace('/dashboard');
         } catch (err) {
             setData({ ...data, err: err.response.data.msg, success: '' });
         }
@@ -136,7 +138,7 @@ const InputUserProfileInfo = () => {
                             </div>
                         </div>
 
-                        <form action="#" >
+                        <form action="#" onSubmit={handleUpdate}>
 
                             <div class="userProfile-details">
                                 <div class="input-box">
@@ -176,7 +178,7 @@ const InputUserProfileInfo = () => {
                             {/* Save button and up=userprofile  */}
                             <div class="input-up-button">
                                 {/* <button type="button" disabled={loading} onClick={handleUpdate}>SAVE</button> */}
-                                <input disabled={loading} onClick={handleUpdate} type="submit" value="SAVE" />
+                                <input disabled={loading} type="submit" value="SAVE" />
                             </div>
 
                         </form>

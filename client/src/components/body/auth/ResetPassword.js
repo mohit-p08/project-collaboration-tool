@@ -64,12 +64,14 @@ function ResetPassword() {
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">New Password</label>
                 <input type="password" name="password" id="password" value={password}
+                    placeholder="Enter your new password"
                     onChange={handleChangeInput} />
 
-                <label htmlFor="cf_password">Confirm Password</label>
+                <label htmlFor="cf_password">Confirm New Password</label>
                 <input type="password" name="cf_password" id="cf_password" value={cf_password}
+                    placeholder="Enter your new password"
                     onChange={handleChangeInput} />
 
                 <button onClick={handleResetPassword}>Reset Password</button>

@@ -62,7 +62,7 @@ const Projects = () => {
 
                                             <div className="d-flex flex-row">
                                                 <button className="like-button">
-                                                    <i className="bi bi-heart-fill btn pt-2 like-icon"></i> <b>30k</b>
+                                                    <i className="bi bi-heart-fill btn pt-2 like-icon"></i> <b>{project.likes}</b>
                                                 </button>
                                             </div>
 
