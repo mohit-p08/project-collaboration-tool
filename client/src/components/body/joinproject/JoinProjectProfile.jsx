@@ -56,12 +56,11 @@ const JoinProjectProfile = () => {
             }, {
                 headers: { Authorization: token }
             });
-
             setSuccess(res.data.msg);
             setNum(0);
 
         } catch (err) {
-            // err.response.data.msg && setErr(err.response.data.msg);
+            // setErr(err.response.data.msg);
         }
     }
 

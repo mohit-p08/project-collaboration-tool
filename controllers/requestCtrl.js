@@ -48,7 +48,7 @@ const requestCtrl = {
                 const requester = await Users.findOne({ _id: collaboratorID }).exec();
                 const email = user.email, name = requester.name, requesterEmail = requester.email, title = projectData.title;
 
-                if (creator == collaboratorID) return res.status(400).json({ msg: `Request failed! You are the project owner of ${title}.` });
+                if (creator == collaboratorID) return res.json({ msg: `Request failed! You are the project owner of ${title}.` });
 
                 const newRequest = new Request({
                     projectID, collaboratorID, requestStatus: 1

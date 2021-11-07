@@ -121,7 +121,7 @@ const InputUserProfileInfo = () => {
             <div className="input-userprofile-main-container mt-5">
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
-                {loading && <h4>Updating Image...</h4>}
+                {loading && <h3></h3>}
                 <div class="input-userprofile-sub-container">
 
                     <div class="input-userprofile-header">
