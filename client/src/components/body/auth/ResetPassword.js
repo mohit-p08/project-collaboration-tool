@@ -57,22 +57,24 @@ function ResetPassword() {
     }
 
     return (
-        <div className="fg_pass">
-            <h2>Reset Your Password</h2>
+        <div className="reset-pwd-main row m-5 ">
+            <div className="reset-pwd fg_pass row col-6">
+                <h2>Reset Your Password</h2>
 
-            <div className="row">
-                {err && showErrMsg(err)}
-                {success && showSuccessMsg(success)}
+                <div className="row">
+                    {err && showErrMsg(err)}
+                    {success && showSuccessMsg(success)}
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={password}
-                    onChange={handleChangeInput} />
+                    <label htmlFor="password" className="my-3"><h6>Password</h6></label>
+                    <input type="password" name="password" id="password" value={password}
+                        onChange={handleChangeInput} />
 
-                <label htmlFor="cf_password">Confirm Password</label>
-                <input type="password" name="cf_password" id="cf_password" value={cf_password}
-                    onChange={handleChangeInput} />
+                    <label htmlFor="cf_password" className="my-3"><h6>Confirm Password</h6></label>
+                    <input type="password" name="cf_password" id="cf_password" value={cf_password}
+                        onChange={handleChangeInput} />
 
-                <button onClick={handleResetPassword}>Reset Password</button>
+                    <button onClick={handleResetPassword} className="my-5">Reset Password</button>
+                </div>
             </div>
         </div>
     );
